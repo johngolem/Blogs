@@ -41,7 +41,7 @@ class User(UserMixin,db.Model):
     return f'User {self.username}'
 
 class Blog(db.Model):
-  __tablename__ = 'Blogs'
+  __tablename__ = 'blogs'
   id = db.Column(db.Integer, primary_key = True)
   title = db.Column(db.String(255),nullable = False)
   post = db.Column(db.Text(), nullable = False)
@@ -52,7 +52,7 @@ class Blog(db.Model):
   time = db.Column(db.DateTime, default = datetime.utcnow)
   category = db.Column(db.String(255), index = True,nullable = False)
  
-  def save_p(self):
+  def save_b(self):
     db.session.add(self)
     db.session.commit()
 
