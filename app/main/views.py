@@ -2,6 +2,20 @@
 from flask_login import login_required
 from . import main
 from flask import render_template, redirect, url_for,abort,request
+from . forms import BlogForm,CommentForm
+from .. models import Blog,User,Comment,Upvote,Downvote
+
+
+
+
+
+@main.route('/')
+def index():
+    Blogs = Blog.query.all()
+    lifestyle = Blog.query.filter_by(category = 'lifestyle').all() 
+    career = Blog.query.filter_by(category = 'career').all()
+    learning = Blog.query.filter_by(category = 'learning').all()
+    return render_template('index.html', blogs = blogs, lifestyle = lifestyle,career= career,learning= learning)
 
 @main.route('/comment/<int:blog_id>', methods=['GET', 'POST'])
 @login_required
