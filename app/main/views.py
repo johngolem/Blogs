@@ -4,6 +4,7 @@ from . import main
 from flask import render_template, redirect, url_for, abort, request
 from . forms import BlogForm, CommentForm
 from .. models import Blog, User, Comment, Upvote, Downvote
+from .. import db
 
 
 @main.route('/')
@@ -32,7 +33,7 @@ def new_blog():
     return render_template('new_blog.html', form=form)
 
 
-@main.route('/comment/<int:pitch_id>', methods = ['POST','GET'])
+@main.route('/comment/<int:pitch_id>', methods=['POST', 'GET'])
 @login_required
 def comment(blog_id):
     form = CommentForm()
@@ -47,3 +48,14 @@ def comment(blog_id):
         new_comment.save_c()
         return redirect(url_for('.comment', blog_id=blog_id))
     return render_template('comment.html', form=form, pitch=blog, all_comments=all_comments)
+
+
+@main.route('/user/<name>')
+def profile(name):
+    user = User.query.filter_by(username=name).first()
+    user_id = current_user._get_current_object().id
+    posts = Blog.query.filter_by(user_id=user_id).all()
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user=user, posts=posts)
