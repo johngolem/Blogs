@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Lifestyle Blogs</h2> 
+      <div id="lifestyle">
+        {{ macro.showBlog(lifestyle)}}
+      </div>
+      <h2>Career Blogs</h2>
+      <div id="Career">
+        {{ macro.showBlog(career) }}
+      </div>
+      <h2>Learning Blogs</h2>
+      <div id="Learning">
+        {{ macro.showBlog(learning) }}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <p>QUOTES</p>
+    </div>
+ 
+  </div>
+</div>
+
+{% endblock%}

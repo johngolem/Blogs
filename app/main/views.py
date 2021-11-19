@@ -1,10 +1,11 @@
-
+from . import main
 from flask_login import login_required, current_user
 from flask import render_template, redirect, url_for, abort, request
 from . forms import BlogForm, CommentForm
 from .. models import Blog, User, Comment, Upvote, Downvote
 from .. import db
-from . import main
+
+
 
 @main.route('/')
 def index():

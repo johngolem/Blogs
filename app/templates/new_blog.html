@@ -1,0 +1,67 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div class="container">
+    <div class=" row">
+        <div class="col-md-10">
+            <h2 class="text-center mt-3">Create a New Blog</h2>
+            <form action=""method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-gruop">
+                    {{ form.title.label(class="form-control-label")}}                
+                    {% if form.title.errors %}
+                        {{ form.title(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                
+                        </div>
+                    {% else %}
+                        {{ form.title(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                <div class="form-gruop">
+                    {{ form.category.label(class="form-control-label")}}                
+                    {% if form.category.errors %}
+                        {{ form.category(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.category.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                
+                        </div>
+                    {% else %}
+                        {{ form.category(class="form-select")}}
+                    {% endif %}
+                </div>
+                <div class="form-gruop">
+                    {{ form.post.label(class="form-control-label")}}                
+                    {% if form.post.errors %}
+                        {{ form.post(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.post.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                
+                        </div>
+                    {% else %}
+                        {{ form.post(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                <div class="form-gruop mt-3 mb-2">
+                    {{ form.submit(class="btn btn-outine-info btn-primary")}}
+                </div>
+            </form>
+    
+        </div>
+        <div class="col-md-2 mt-5">
+            <h1 class="text-center" id="counter"> 60 seconds</h1>
+    
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock%}

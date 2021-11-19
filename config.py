@@ -3,20 +3,10 @@ import os
 class Config:
     '''
     General configuration parent class
-    '''    
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_TRACK_MODIFICATIONS=True
-
-    DEBUG = True
-    #Route to photos
+    '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://johnpaul:trees@localhost/pitch'
+    SECRET_KEY = '<pitchsecretkey>'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-
-    #email configurations
-    # MAIL_SERVER = 'smtp.googlemail.com'
-    # MAIL_PORT = 587
-    # MAIL_USE_TLS = True
-    # MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    # MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     
 
 
@@ -28,8 +18,7 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://johnpaul:trees@localhost/ blogs'
-    SECRET_KEY = '<pitchsecretkey>'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 
 class DevConfig(Config):
