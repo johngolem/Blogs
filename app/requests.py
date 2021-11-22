@@ -1,10 +1,13 @@
- from flask_mail import Message
-from flask import render_template
-from . import mail
+import requests
+from .models import Quote
 
-def mail_message(subject,template,to,**kwargs):
-  sender_email = '@gmail.com'
-  email = Message(subject, sender=sender_email, recipients=[to])
-  email.body= render_template(template + ".txt",**kwargs)
-  email.html = render_template(template + ".html",**kwargs)
-  mail.send(email)
+url = "http://quotes.stormconsultancy.co.uk/random.json"
+
+def get_quote():
+    """
+    Function to consume http request and return a Quote class instance
+    """
+    response = requests.get(url).json()
+
+    random_quote = Quote(response.get("author"), response.get("quote"))
+    return random_quote
