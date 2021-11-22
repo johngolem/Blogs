@@ -1,13 +1,24 @@
-import requests
+import urllib.request,json
 from .models import Quote
 
-url = "http://quotes.stormconsultancy.co.uk/random.json"
 
-def get_quote():
-    """
-    Function to consume http request and return a Quote class instance
-    """
-    response = requests.get(url).json()
+base_url = 'http://quotes.stormconsultancy.co.uk/random.json'
 
-    random_quote = Quote(response.get("author"), response.get("quote"))
-    return random_quote
+
+def configure_request(app):
+    global base_url
+    base_url = app.config['QUOTE_API_BASE_URL']
+
+
+def getQuotes():
+    with urllib.request.urlopen(base_url) as data:
+        quotesResponse = data.read()
+        word = json.loads(quotesResponse)
+        print(word)
+        read = []
+        id = word.get('id')
+        author = word.get('author')
+        quote = word.get('quote')
+        quoteObject = Quote(id,author,quote)
+        read.append(quoteObject)
+        return read

@@ -4,17 +4,20 @@ from flask import render_template, redirect, url_for, abort, request
 from . forms import BlogForm, CommentForm
 from .. models import Blog, User, Comment, Upvote, Downvote
 from .. import db
+from  ..requests import getQuotes
 
 
 
 
 @main.route('/')
 def index():
+
+    getquotes = getQuotes()
     blogs = Blog.query.all()
     lifestyle = Blog.query.filter_by(category='lifestyle').all()
     career = Blog.query.filter_by(category='career').all()
     learning = Blog.query.filter_by(category='learning').all()
-    return render_template('index.html', blogs=blogs, lifestyle=lifestyle, career=career, learning=learning)
+    return render_template('index.html', blogs=blogs, lifestyle=lifestyle, career=career, learning=learning, getquotes=getquotes)
 
 
 @main.route('/create_new', methods=['POST', 'GET'])
