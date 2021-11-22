@@ -111,7 +111,7 @@ env.bak/
 venv.bak/
 envpitch/
 virtual/
-
+start.sh/
 
 # Spyder project settings
 .spyderproject
