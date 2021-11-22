@@ -1,0 +1,10 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #faebd7;
+  font-family: 'Road Rage', cursive;
+}
+#quot {
+  font-size: larger;
+}
