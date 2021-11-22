@@ -7,6 +7,7 @@ from .. import db
 
 
 
+
 @main.route('/')
 def index():
     blogs = Blog.query.all()
