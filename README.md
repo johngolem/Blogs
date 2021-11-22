@@ -1,4 +1,4 @@
-## <h1> NEWS-API </h1>
+## <h1> Blogs and Quote </h1>
 
 ## @2021
 
@@ -7,15 +7,15 @@
 ## DESCRIPTION
 
 A Flask powered application where the user can:
-<li>See various news sources on the homepage of the application.</li>
+<li>See a random quote posted on the homepage of the application.</li>
 <li>Go back to the home page</li>
-<li>Get a new article</li>
+<li>create a new blog</li>
 Deployed by heroku.
 
 ## SET-UP INSTRUCTIONS
 
-1. You can clone the app from my github repository - https://github.com/johngolem/NewsFetch
-   Clone using - $ git clone https://github.com/johngolem/NewsFetch
+1. You can clone the app from my github repository - https://github.com/johngolem/Blogs.git
+   Clone using - $ git clone https://github.com/johngolem/Blogs.git
 
 2. Create your own start.sh file.
 
@@ -25,13 +25,13 @@ Deployed by heroku.
 
 ## KNOWN BUGS
 
-<li>Currently the images after clicking a news source are not beeing rendered.</li>
+<li>Currently the comment/upvote and downvote function dont work.</li>
 <li>UI is not complete at the time of submision </li>
-<li>news sources that have a space or hyphen in between the words cannot redirect</li>
 
 ## TECHNOLOGIES USED
 
 <li>Python(flask)</li>
+<li>postgre</li>
 <li>HTML</li>
 <li>CSS</li>
 
