@@ -3,6 +3,7 @@ from flask_bootstrap import Bootstrap
 from config import config_options
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_mail import Mail
 
 
 # login Hellper classes
@@ -16,10 +17,13 @@ login_manager.login_view = 'auth.login'
 # database
 db = SQLAlchemy()
 bootstrap = Bootstrap()
+mail = Mail()
 
 def create_app(config_name):
 
     app = Flask(__name__)
+    mail.init_app(app)
+
     # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # Creating the app configurations
