@@ -31,7 +31,7 @@ Deployed by heroku.
 ## TECHNOLOGIES USED
 
 <li>Python(flask)</li>
-<li>postgre</li>
+<li>postgre</l>
 <li>HTML</li>
 <li>CSS</li>
 
