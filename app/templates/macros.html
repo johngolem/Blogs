@@ -17,10 +17,10 @@
             <span>{{blog.comment.count()}} <i class="fas fa-comment"></i> <a href="{{url_for('main.comment',blog_id = blog.id)}}">Add Comment</a></span>
           </div>
           <div class="col-md-4 ">
-            <span> <a href="{{url_for('main.like',id = blog.id)}}"><i class="fa fa-thumbs-up"></i> Upvotes: {{blog.upvote.count()}}</a></span>
+            <span> <a href="#"><i class="fa fa-thumbs-up"></i> Upvotes: {{blog.upvote.count()}}</a></span>
           </div>
           <div class="col-md-4 ">
-            <span> <a href="{{url_for('main.dislike',id = blog.id)}}"> <i class="fa fa-thumbs-down"></i> Downvotes: {{blog.downvote.count()}}</a></span>
+            <span> <a href="#"> <i class="fa fa-thumbs-down"></i> Downvotes: {{blog.downvote.count()}}</a></span>
           </div>    
         </div>
       </div>

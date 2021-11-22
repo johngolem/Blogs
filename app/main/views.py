@@ -34,7 +34,7 @@ def new_blog():
     return render_template('new_blog.html', form=form)
 
 
-@main.route('/comment/<int:pitch_id>', methods=['POST', 'GET'])
+@main.route('/comment/<int:blog_id>', methods=['POST', 'GET'])
 @login_required
 def comment(blog_id):
     form = CommentForm()
@@ -48,7 +48,7 @@ def comment(blog_id):
             comment=comment, user_id=user_id, blog_id=blog_id)
         new_comment.save_c()
         return redirect(url_for('.comment', blog_id=blog_id))
-    return render_template('comment.html', form=form, pitch=blog, all_comments=all_comments)
+    return render_template('comment.html', form=form, blog=blog, all_comments=all_comments)
 
 
 @main.route('/user/<name>')
